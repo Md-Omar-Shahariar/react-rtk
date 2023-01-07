@@ -9,11 +9,9 @@ import Navbar from "../components/navbar/Navbar";
 const Home = () => {
   return (
     <>
-      <Navbar></Navbar>
       <Tags></Tags>
       <VideoGrid></VideoGrid>
       <Pagination></Pagination>
-      <Footer></Footer>
     </>
   );
 };
