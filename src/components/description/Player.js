@@ -1,6 +1,6 @@
 import React from "react";
 
-const player = () => {
+const Player = () => {
   return (
     <iframe
       width="100%"
@@ -9,9 +9,9 @@ const player = () => {
       title="Some video title"
       frameBorder=""
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullscreen
+      allowFullScreen
     ></iframe>
   );
 };
 
-export default player;
+export default Player;
