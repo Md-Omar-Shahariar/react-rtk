@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { getVideos } from "./videosApi";
 
 const initialState = {
   videos: [],
@@ -8,13 +9,28 @@ const initialState = {
   error: "",
 };
 
-export const fetchVideos = createAsyncThunk(
-  "videos/fetchVideos",
-  async () => {}
-);
+export const fetchVideos = createAsyncThunk("videos/fetchVideos", async () => {
+  const videos = await getVideos();
+  return videos;
+});
 
 const videoSlice = createSlice({
   name: "videos",
   initialState,
-  extraReducers: (builder) => builder.addCase(),
+  extraReducers: (builder) =>
+    builder
+      .addCase(fetchVideos.pending, (state) => {
+        state.isError = false;
+        state.isLoading = true;
+      })
+      .addCase(fetchVideos.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.videos = action.payload;
+      })
+      .addCase(fetchVideos.rejected, (state, action) => {
+        state.isError = true;
+        state.isError = action.error?.message;
+      }),
 });
+
+export default videoSlice.reducer;
