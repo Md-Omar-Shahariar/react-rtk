@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getTags } from "./videosApi";
+import { getTags } from "./tagApi";
 
 const initialState = {
   tags: [],
