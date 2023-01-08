@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getVideo } from "./videoApi";
 
 const initialState = {
-  video: [],
+  video: {},
 
   isLoading: false,
   isError: false,
