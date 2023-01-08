@@ -1,6 +1,5 @@
 import React from "react";
-import Navbar from "../components/navbar/Navbar";
-import Footer from "../components/footer/Footer";
+
 import Player from "../components/description/Player";
 import VideoDescription from "../components/description/VideoDescription";
 
