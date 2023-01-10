@@ -1,6 +1,6 @@
 import axios from "../../utils/axios";
 
-export const getVideo = async ({ tags, id }) => {
+export const getRelatedVideo = async ({ tags, id }) => {
   const limit = 5;
   let query =
     tags?.length > 0
