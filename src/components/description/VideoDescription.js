@@ -4,7 +4,6 @@ import LikeUnlike from "./LikeUnlike";
 const VideoDescription = ({ video }) => {
   const { title, date, description, likes, unlikes } = video;
 
-  console.log(video);
   return (
     <div>
       <h1 className="text-lg font-semibold tracking-tight text-slate-800">

@@ -13,7 +13,8 @@ const Video = () => {
   const { videoId } = useParams();
   const dispatch = useDispatch();
   const { video } = useSelector((state) => state.video);
-  const { link, title } = video;
+
+  const { link, title, id, tags } = video;
 
   useEffect(() => {
     dispatch(fetchVideo(videoId));
@@ -29,7 +30,7 @@ const Video = () => {
             <VideoDescription video={video}></VideoDescription>
           </div>
 
-          <VideoList></VideoList>
+          <VideoList currentVideoId={id} tags={tags}></VideoList>
         </div>
       </div>
     </section>
