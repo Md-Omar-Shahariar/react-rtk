@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SingleVideo = ({ video = {} }) => {
-  const { id, thumbnail, title, duration, author, avatar, views, date } = video;
+  const { id, thumbnail, title, duration, author, avatar, link, views, date } =
+    video;
 
   return (
     <div className="w-full flex flex-row gap-2 mb-4">
