@@ -30,7 +30,7 @@ const Pagination = () => {
             <div
               onClick={() => handlePage(index + 1)}
               className={`${
-                index + 1 === pagination ? "bg-blue-500" : "bg-blue-200"
+                index + 1 === pagi ? "bg-blue-500" : "bg-blue-200"
               } text-white px-4 py-1 rounded-full`}
             >
               {index + 1}
