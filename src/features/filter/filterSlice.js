@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   tags: [],
   searchText: "",
-  pagination: "",
+  pagination: 1,
 };
 
 const filterSlice = createSlice({
@@ -22,8 +22,11 @@ const filterSlice = createSlice({
     search: (state, action) => {
       state.searchText = action.payload;
     },
+    pag: (state, action) => {
+      state.pagination = action.payload;
+    },
   },
 });
 
 export default filterSlice.reducer;
-export const { tagSelected, tagRemoved, search } = filterSlice.actions;
+export const { tagSelected, tagRemoved, search, pag } = filterSlice.actions;

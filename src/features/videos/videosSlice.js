@@ -3,6 +3,7 @@ import { getVideos } from "./videosApi";
 
 const initialState = {
   videos: [],
+  count: "",
 
   isLoading: false,
   isError: false,
@@ -11,9 +12,10 @@ const initialState = {
 
 export const fetchVideos = createAsyncThunk(
   "videos/fetchVideos",
-  async ({ tags, search }) => {
-    const videos = await getVideos(tags, search);
-    return videos;
+  async ({ tags, search, pagination }) => {
+    const { response2, count } = await getVideos(tags, search, pagination);
+
+    return { response2, count };
   }
 );
 
@@ -28,12 +30,14 @@ const videosSlice = createSlice({
       })
       .addCase(fetchVideos.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.videos = action.payload;
+        console.log(action);
+        state.videos = action.payload.response2.data;
+        state.count = action.payload.count;
       })
       .addCase(fetchVideos.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
-        state.error = action.error?.message;
+        state.error = action.data.error?.message;
       }),
 });
 
