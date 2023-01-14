@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   tags: [],
   searchText: "",
+  pagination: "",
 };
 
 const filterSlice = createSlice({
